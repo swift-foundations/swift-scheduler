@@ -1,6 +1,6 @@
 # .github/metadata.yaml
 # Triaged by AI-assisted bulk pass (2026-04-29).
-description: "Task scheduling and timed execution for Swift."
+description: "Namespace reserved for task scheduling and timed execution in Swift."
 topics:
   - foundations
   - scheduler
