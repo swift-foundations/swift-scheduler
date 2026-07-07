@@ -12,7 +12,7 @@
 extension Scheduler {
     /// The typed error domain thrown by job registration, dispatch, and execution.
     public enum Error: Swift.Error, Sendable {
-        /// Configuring the queue driver failed (e.g. an invalid Redis URL).
+        /// Configuring the queue driver failed (such as an invalid Redis URL).
         case driver(String)
         /// Dispatching a job onto the queue failed.
         case dispatch(String)

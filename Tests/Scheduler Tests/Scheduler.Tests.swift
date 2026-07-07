@@ -9,9 +9,8 @@
 //
 // ===----------------------------------------------------------------------===//
 
-import Testing
-
 import Scheduler
+import Testing
 
 // The first consumer's three jobs, modeled: on-demand bulk work (payload), and two scheduled jobs.
 

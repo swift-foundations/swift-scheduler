@@ -23,8 +23,13 @@ extension Scheduler {
         public private(set) var jobNames: [String]
         /// The names of registered scheduled jobs, in registration order.
         public private(set) var scheduledNames: [String]
+        // Deliberate erasure: entries replay onto whichever engine-specific
+        // Scheduler.Installing conformer is wired at boot; the existential keeps
+        // the registry engine-free (documented type-recovery design above).
+        // swiftlint:disable no_any_protocol_existential
         /// Erased registration steps, in registration order across both jobs and scheduled jobs.
         var entries: [@Sendable (any Scheduler.Installing) -> Void]
+        // swiftlint:enable no_any_protocol_existential
 
         public init() {
             self.jobNames = []
