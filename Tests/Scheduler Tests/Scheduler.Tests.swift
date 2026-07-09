@@ -14,20 +14,27 @@ import Testing
 
 // The first consumer's three jobs, modeled: on-demand bulk work (payload), and two scheduled jobs.
 
-private struct BulkTrackJob: Scheduler.Job {
+private struct BulkTrackJob: Scheduler.Job {}
+
+extension BulkTrackJob {
     struct Payload: Codable, Sendable {
         let identityId: String
         let statusId: String
     }
+
     func run(_ payload: Payload) async throws(Scheduler.Error) {}
 }
 
-private struct PollJob: Scheduler.Scheduled {
+private struct PollJob: Scheduler.Scheduled {}
+
+extension PollJob {
     static var schedule: Scheduler.Schedule { .hourly(minute: 0) }
     func run() async throws(Scheduler.Error) {}
 }
 
-private struct CacheRefreshJob: Scheduler.Scheduled {
+private struct CacheRefreshJob: Scheduler.Scheduled {}
+
+extension CacheRefreshJob {
     static var schedule: Scheduler.Schedule { .hourly(minute: 5) }
     func run() async throws(Scheduler.Error) {}
 }
@@ -88,7 +95,9 @@ private final class RecordingInstaller: Scheduler.Installing {
     private(set) var installedScheduled: [String] = []
     /// Full registration order, jobs and scheduled jobs interleaved as replayed.
     private(set) var order: [String] = []
+}
 
+extension RecordingInstaller {
     func install<J: Scheduler.Job>(_ job: J) {
         installedJobs.append(J.name)
         installedPayloadTypes.append("\(J.Payload.self)")
