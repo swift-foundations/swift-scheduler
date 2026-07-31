@@ -20,6 +20,7 @@ extension Scheduler {
         /// The stable name used to key this job on the queue. Defaults to the type name.
         static var name: String { get }
         /// Runs the job for a dequeued payload.
+        @available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
         func run(_ payload: Payload) async throws(Scheduler.Error)
     }
 }

@@ -20,6 +20,7 @@ extension Scheduler {
         /// The cadence at which the job runs.
         static var schedule: Scheduler.Schedule { get }
         /// Runs the job for one scheduled tick.
+        @available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
         func run() async throws(Scheduler.Error)
     }
 }
