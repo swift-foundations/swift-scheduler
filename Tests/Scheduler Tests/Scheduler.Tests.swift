@@ -59,7 +59,10 @@ extension CacheRefreshJob {
 }
 
 @Test func `Driver and Execution cases compare by value`() {
-    #expect(Scheduler.Driver.redis(url: "redis://localhost:6379") == .redis(url: "redis://localhost:6379"))
+    #expect(
+        Scheduler.Driver.redis(url: "redis://localhost:6379")
+            == .redis(url: "redis://localhost:6379")
+    )
     #expect(Scheduler.Driver.redis(url: "redis://a") != .redis(url: "redis://b"))
     #expect(Scheduler.Execution.inProcess != .workers)
     #expect(Scheduler.Execution.workers == .workers)
