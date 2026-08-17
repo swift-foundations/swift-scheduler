@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "swift-scheduler",
     platforms: [
-        .macOS(.v26)
+        .macOS("27")
     ],
     products: [
         .library(name: "Scheduler", targets: ["Scheduler"])
